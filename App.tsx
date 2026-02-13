@@ -52,7 +52,7 @@ const AppContent: React.FC = () => {
             <Bars3Icon className="w-6 h-6" />
           </button>
           <div className="flex items-center gap-3">
-            <img src="/src/VolumeBook.png" alt="Logo" className="w-10 h-10 object-contain rounded-lg" />
+            <img src="/VolumeBook.png" alt="Logo" className="w-10 h-10 object-contain rounded-lg" />
             <div className="flex flex-col">
               <h1 className="text-xl font-bold tracking-tight serif-font text-[#1a1917]">
                 The Volume <span className="text-[#8c7851]">of the Book</span>
