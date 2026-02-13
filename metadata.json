@@ -1,0 +1,7 @@
+{
+  "name": "The Volume of the Book",
+  "description": "A sophisticated Bible application featuring an interactive reader, AI-powered theological insights, and a personal study assistant.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
