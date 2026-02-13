@@ -9,12 +9,12 @@ import {
   Bars3Icon,
   XMarkIcon
 } from '@heroicons/react/24/outline';
-import Home from './components/Home';
-import BibleReader from './components/BibleReader';
-import StudyAssistant from './components/StudyAssistant';
-import Search from './components/Search';
-import Splash from './components/Splash';
-import NotFound from './components/NotFound';
+const Home = React.lazy(() => import('./components/Home'));
+const BibleReader = React.lazy(() => import('./components/BibleReader'));
+const StudyAssistant = React.lazy(() => import('./components/StudyAssistant'));
+const Search = React.lazy(() => import('./components/Search'));
+const Splash = React.lazy(() => import('./components/Splash'));
+const NotFound = React.lazy(() => import('./components/NotFound'));
 
 const AppContent: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -120,13 +120,19 @@ const AppContent: React.FC = () => {
 
         {/* Main Content */}
         <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-6 lg:px-8">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/bible" element={<BibleReader />} />
-            <Route path="/study" element={<StudyAssistant />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <React.Suspense fallback={
+            <div className="flex items-center justify-center h-64">
+              <div className="w-8 h-8 border-4 border-[#8c7851] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/bible" element={<BibleReader />} />
+              <Route path="/study" element={<StudyAssistant />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </React.Suspense>
         </main>
       </div>
 
